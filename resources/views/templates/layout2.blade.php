@@ -21,15 +21,15 @@
 			  <a class="navbar-brand" href="{{route('admin.')}}">Blog Personal</a>
 			</div>
 			<ul class="nav navbar-nav navbar-left">
-		@if(Auth::user()->type=='admin')
+		@if(Auth::user())
+			@if(Auth::user()->type=='admin')
 				<li class="dropdown"><a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">Usuarios<span class="caret"></span></a>
 					<ul id="g-account-menu" class="dropdown-menu" role="menu">
 					<li><a href="{{route('admin.users.index')}}">Listar</a></li>
 					<li><a href="{{route('admin.users.create')}}">Agregar</a></li>
 				  </ul>
 				</li>
-		@endif
-		@if(Auth::user())
+			@endif
 				<li class="dropdown"><a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">Articulos<span class="caret"></span></a>
 					<ul id="g-account-menu" class="dropdown-menu" role="menu">
 					<li><a href="{{route('admin.articles.index')}}">Listar</a></li>
@@ -65,6 +65,11 @@
                                             {{ csrf_field() }}
                                         </form>
 					</li>
+		@else
+					</li>
+					<li><a href="{{route('login')}}">Iniciar Sesion</a></li>
+
+					<li><a href="{{route('register')}}">Registrar</a></li>
 				  </ul>
 		@endif
 				</li>
