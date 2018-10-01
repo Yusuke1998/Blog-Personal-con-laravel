@@ -20,8 +20,8 @@ class usersRequest extends FormRequest
     {
         return [
             'name'      => 'required|max:20|min:5',
-            'email'     => 'required|max:40|min:10',
-            'password'  => 'required|min:8|max:20|unique:users',
+            'email'     => 'required|max:40|min:10|unique:users',
+            'password'  => 'required|min:8|max:20',
             'type'      => 'required'
         ];
     }
@@ -33,6 +33,7 @@ class usersRequest extends FormRequest
             'name.min'          => 'Debes escribir un nombre un poco mas largo',
             'email.required'    => 'El correo electronico es requerido',
             'email.max'         => 'Superaste el numero de caracteres para el correo',
+            'email.unique'      =>  'Este email ya esta registrado, intenta con otro o intenta recuperar tu contraseña',
             'email.min'         => 'Debes escribir un correo un poco mas largo',
             'password.required' => 'La contraseña es requerida',
             'password.min'      => 'Debes esciribir una contraseña que supere los 8 caracteres',

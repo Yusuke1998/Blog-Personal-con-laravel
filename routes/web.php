@@ -37,7 +37,7 @@ Route::get('article/{id}',[
 Route::group(['prefix'=>'admin', 'as' => 'admin.', 'middleware'=>'auth'],function(){
 	
 	Route::get('index','HomeController@indexAdmin');
-	Route::resource('users','UsersController');
+	Route::resource('users','UsersController')->middleware('admin');
 	Route::resource('categories','CategoriesController');
 	Route::resource('tags','TagsController');
 	Route::resource('articles','ArticlesController');
